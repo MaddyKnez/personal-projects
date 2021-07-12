@@ -1,1 +1,1 @@
-# summer-projects
+# personal-projects
