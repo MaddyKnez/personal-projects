@@ -10,7 +10,9 @@ int main(){
     
     binaryToDecimal(binary);
 
-    decimalToBinary(12);
+    decimalToBinary(1222);
+
+    return 0;
 }
 
 void binaryToDecimal(char * num){
@@ -29,7 +31,7 @@ void binaryToDecimal(char * num){
 
 
 void decimalToBinary(int num){
-    char temp[10] = "";
+    char temp[100] = "";
     int counter = 0;
 
     while (num > 0) {
@@ -41,11 +43,17 @@ void decimalToBinary(int num){
         counter++;
     }
 
-    char binary[10] = "";
-    int i;
-    for (i = 0; i < 4; i++)
+    int length = 0;
+    while (temp[length] != '\0')
     {
-        binary[i] = temp[4 - 1 - i];
+        length++;
+    }
+
+    char binary[100] = "";
+    int i;
+    for (i = 0; i < length; i++)
+    {
+        binary[i] = temp[length - 1 - i];
     }
 
     printf("%s\n", binary);
