@@ -1,4 +1,4 @@
-## @file WordsInWords.py
+## @file WordsInWords.sh
 #  @author Madeline Knez
 #  @brief A script that accepts one arguement of a piece of text, and produces a list of words that
 #  are found within other words in that text
