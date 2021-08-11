@@ -5,11 +5,13 @@
 
 #!/bin/bash
 
+## @brief Determines the number of colours in the input that have the same position has the code being guessed
+#  @return The number of similar positions between input and the code 
 function correctPositions {
     correctPosition=0
     for (( i=0; i<${#code}; i++ ))
     do
-        if [ ${code:$i:1} == ${1:$i:1} ]
+        if [ ${code:$i:1} == ${input:$i:1} ]
         then
             correctPosition=$(($correctPosition+1))
         fi 
@@ -17,11 +19,13 @@ function correctPositions {
     return $correctPosition
 }
 
+## @brief Determines the number of colours appearing code that also appear in the input
+#  @return The number of similar colours between input and the code
 function correctColours {
     correctColour=0
     for (( i=0; i<${#code}; i++ ))
     do
-        if [[ "$1" == *"${code:$i:1}"* ]] 
+        if [[ "$input" == *"${code:$i:1}"* ]] 
         then
             correctColour=$(($correctColour+1))
         fi  
@@ -29,6 +33,9 @@ function correctColours {
     return $correctColour
 }
 
+## @brief Prints the similarities between the input and the code
+#  @param The number of colour positions that are the same between input and the code 
+#  @param The number of similar colours between input and the code
 function resultsOfRound {
     echo -n "       "
     for (( i=0; i<$1; i++ ))
@@ -43,8 +50,9 @@ function resultsOfRound {
     echo ""
 }
 
+## @brief Prints whether the user has won or lost
 function finalResult {
-    if [ $1 == 1 ]
+    if [ $found == 1 ]
     then
         echo "You cracked the code!"
     else
@@ -52,6 +60,8 @@ function finalResult {
     fi
 }
 
+## @brief Runs the game of mastermind
+#  @details A loop runs 8 times or until the code has been guessed by the user
 function main {
     code="bgrp"
     found=0
@@ -62,10 +72,10 @@ function main {
         echo "Enter a new code: "
         read input
 
-        correctPositions $input
+        correctPositions
         cp=$?
 
-        correctColours $input
+        correctColours
         cc=$?
         cc=$(($cc-$cp))
 
@@ -80,6 +90,6 @@ function main {
         inputCounter=$(($inputCounter+1))
     done
 
-    finalResult $found
+    finalResult
 }
 main
