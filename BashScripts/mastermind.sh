@@ -40,12 +40,12 @@ function resultsOfRound {
     echo -n "       "
     for (( i=0; i<$1; i++ ))
     do 
-        echo -n "*"
+        echo "*\c"
     done
 
     for (( i=0; i<$2; i++ ))
     do 
-        echo -n "#"
+        echo "#\c"
     done 
     echo ""
 }
