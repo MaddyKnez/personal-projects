@@ -1,10 +1,9 @@
-import java.util.*;
 public class Game {
-    private int height;
-    private int width;
-    private int[][] board;
-    private Snake snake;
-    private Apple apple;
+    private final int height;
+    private final int width;
+    private final int[][] board;
+    private final Snake snake;
+    private final Apple apple;
     private boolean alive;
     private int points;
 

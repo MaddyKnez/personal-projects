@@ -8,11 +8,6 @@ public class Apple {
         possiblePositions = new ArrayList<>();
     }
 
-    public void setAppleMaze(int height, int width){
-        row = height - 1;
-        column = width - 1;
-    }
-
     public void setApple(int[][] board, int[][] snake){
         Random rand = new Random();
         getPossiblePositions(board, snake);

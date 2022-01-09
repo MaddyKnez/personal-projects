@@ -4,7 +4,7 @@ public class Main {
     {
         Scanner sc= new Scanner(System.in);
 
-        GameMaze game = new GameMaze(11, 10);
+        Game game = new Game(11, 10);
         game.display();
 
         String str= sc.nextLine();

@@ -6,8 +6,7 @@ public class Snake {
     private String direction;
 
     public Snake(int[][] board, String initDirection){
-        //setInitBody(board);
-        setInitBodyMaze(board);
+        setInitBody(board);
 
         direction = initDirection;
     }
@@ -29,12 +28,6 @@ public class Snake {
         } else if(column + 1 < board.length){
             body.add(new int[] {row, column + 1});
         }
-    }
-
-    public void setInitBodyMaze(int[][] board){
-        body = new ArrayList<>();
-        body.add(new int[] {0, board.length-3});
-        body.add(new int[] {0, board.length-2});
     }
 
     public void takeStep(int[] position){
@@ -75,15 +68,6 @@ public class Snake {
             }
         }
         return false;
-    }
-
-    public void resetSnake(){
-        int counter = 2;
-        for(int i = 0; i < body.size()-1; i++){
-            body.get(i)[0] = 0;
-            body.get(i)[1] = body.size() - counter;
-            counter++;
-        }
     }
 
     public int[][] getBody(){
